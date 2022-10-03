@@ -17,22 +17,22 @@ class App extends React.Component {
     super();
 
     this.state = {
+      isLoading: false,
       logado: false,
-      muda: false,
     };
   }
 
   componentDidUpdate() {
-    const { logado } = this.state;
-    console.log(logado);
+    const { isLoading } = this.state;
+    console.log(isLoading);
   }
 
   getLogado = () => {
-    this.setState({ logado: true }, () => {
+    this.setState({ isLoading: true }, () => {
       createUser({ name: 'Name' })
         .then(() => this.setState(
-          { logado: false,
-            muda: true,
+          { isLoading: false,
+            logado: true,
           },
           () => { (<Redirect to="/search" />); },
         ));
@@ -40,9 +40,9 @@ class App extends React.Component {
   };
 
   render() {
-    const { logado, muda } = this.state;
+    const { isLoading, logado } = this.state;
 
-    if (logado === true) return <Carregando />;
+    if (isLoading === true) return <Carregando />;
     return (
       <>
         <p>TrybeTunes</p>
@@ -57,11 +57,8 @@ class App extends React.Component {
             path="/"
           >
             {
-              muda === false
-                ? <Login
-                  logado={ logado }
-                  getLogado={ this.getLogado }
-                />
+              logado === false
+                ? <Login isLoading={ isLoading } getLogado={ this.getLogado } />
                 : <Redirect to="/search" />
             }
           </Route>

@@ -1,8 +1,5 @@
 import React from 'react';
-// import { Redirect } from 'react-router-dom';
-// import { createUser } from '../userAPI';
-// import Carregando from './Carregando';
-// import Search from './Search';
+import PropTypes from 'prop-types';
 
 class Login extends React.Component {
   constructor() {
@@ -35,8 +32,7 @@ class Login extends React.Component {
   render() {
     const { disabled } = this.state;
     const { getLogado } = this.props;
-    // const createUser = this.props;
-    // console.log(getLogado);
+
     return (
       <div data-testid="page-login">
         <input
@@ -60,5 +56,9 @@ class Login extends React.Component {
     );
   }
 }
+
+Login.propTypes = {
+  getLogado: PropTypes.func.isRequired,
+};
 
 export default Login;
