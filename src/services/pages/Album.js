@@ -44,7 +44,7 @@ class Album extends React.Component {
 
   render() {
     const { id: { match: { params } } } = this.props;
-    const { isLoading, musics, isLoadingFav } = this.state;
+    const { isLoading, musics } = this.state;
     // const { musics } = this.state;
     this.getttingFavorite();
     this.musiquinhas(params.id);
