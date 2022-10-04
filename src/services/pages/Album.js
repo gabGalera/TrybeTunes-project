@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Carregando from './Carregando';
 import Header from '../../components/Header';
 import MusicCard from '../../components/MusicCard';
 import getMusics from '../musicsAPI';
+import { getFavoriteSongs } from '../favoriteSongsAPI';
 
 class Album extends React.Component {
   constructor() {
@@ -11,6 +13,7 @@ class Album extends React.Component {
     this.state = {
       musics: [],
       isLoading: true,
+      // isLoadingFav: true,
     };
   }
 
@@ -19,6 +22,17 @@ class Album extends React.Component {
     // console.log('oi');
     return (musics.length === 0);
   }
+
+  getttingFavorite = () => {
+    getFavoriteSongs()
+      .then(() => this.setState({
+        isLoading: false,
+      }, () => {
+        this.setState({
+          isLoading: true,
+        });
+      }));
+  };
 
   musiquinhas = (id) => {
     getMusics(id)
@@ -30,17 +44,18 @@ class Album extends React.Component {
 
   render() {
     const { id: { match: { params } } } = this.props;
-    const { isLoading } = this.state;
-    const { musics } = this.state;
-
+    const { isLoading, musics, isLoadingFav } = this.state;
+    // const { musics } = this.state;
+    this.getttingFavorite();
     this.musiquinhas(params.id);
+
+    // if (isLoadingFav === true) return <Carregando />;
+
     return (
       <div data-testid="page-album">
         <Header />
         {isLoading ? (
-          <span>
-            Na espera
-          </span>
+          <Carregando />
         ) : (
           <>
             <span data-testid="artist-name">

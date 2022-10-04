@@ -14,37 +14,22 @@ class MusicCard extends React.Component {
     };
   }
 
-  // shouldComponentUpdate(e) {
-  //   this.waitMusic(e);
-  // }
-
   waitMusic = (e) => {
     const { favorites } = this.state;
+    const { musics } = this.props;
     favorites.push(Number(e.target.id));
     this.setState({
       isLoading: true,
       favorites,
     }, () => {
-      console.log(favorites);
-      addSong().then(() => {
+      const music = musics.filter((entry) => entry.trackId === Number(e.target.id));
+      addSong(music).then(() => {
         this.setState({
           isLoading: false,
         });
       });
     });
   };
-
-  // check = (entry) => {
-  //   const { favorites } = this.state;
-  //   if (typeof entry.target !== 'undefined') {
-  //     const favorite = favorites.filter((fav) => fav === entry.target.id);
-  //     console.log(favorite);
-  //     return true;
-  //   }
-  //   const favorite = [];
-  //   console.log(entry);
-  //   return (favorite.length > 0);
-  // };
 
   render() {
     const { isLoading, favorites } = this.state;
