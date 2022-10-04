@@ -22,11 +22,6 @@ class App extends React.Component {
     };
   }
 
-  // componentDidUpdate() {
-  // const { isLoading } = this.state;
-  // console.log(isLoading);
-  // }
-
   getLogado = () => {
     this.setState({ isLoading: true }, () => {
       createUser({ name: 'Name' })
