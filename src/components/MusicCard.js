@@ -5,7 +5,7 @@ class MusicCard extends React.Component {
   render() {
     const {
       music,
-      addingMusic,
+      handleChange,
       check } = this.props;
 
     return (
@@ -30,7 +30,7 @@ class MusicCard extends React.Component {
               data-testid={ `checkbox-music-${music.trackId}` }
               value={ music.trackId }
               checked={ check }
-              onChange={ (e) => addingMusic(e) }
+              onChange={ (e) => handleChange(e) }
             />
           </label>
         </span>
@@ -41,7 +41,7 @@ class MusicCard extends React.Component {
 
 MusicCard.propTypes = {
   music: PropTypes.shape().isRequired,
-  addingMusic: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
   check: PropTypes.bool.isRequired,
 };
 

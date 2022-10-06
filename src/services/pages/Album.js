@@ -4,7 +4,7 @@ import Carregando from './Carregando';
 import Header from '../../components/Header';
 import MusicCard from '../../components/MusicCard';
 import getMusics from '../musicsAPI';
-import { getFavoriteSongs, addSong } from '../favoriteSongsAPI';
+import { getFavoriteSongs, addSong, removeSong } from '../favoriteSongsAPI';
 
 class Album extends React.Component {
   constructor() {
@@ -37,15 +37,14 @@ class Album extends React.Component {
       });
   }
 
-  addingMusic = (e) => {
+  handleStorage = (func, e) => {
     const { musics } = this.state;
     this.setState({
       isLoadingFav: true,
     });
     const music = musics
       .filter((entry) => entry.trackId === Number(e.target.value));
-    console.log(music);
-    addSong(...music)
+    func(...music)
       .then(() => getFavoriteSongs()
         .then((songs) => {
           const IDs = songs.map((song) => song.trackId);
@@ -56,6 +55,16 @@ class Album extends React.Component {
           });
         }));
   };
+
+  addingMusic = (e) => {
+    this.handleStorage(addSong, e);
+  };
+
+  removingMusic = (e) => {
+    this.handleStorage(removeSong, e);
+  };
+
+  handleChange = (e) => (e.target.checked ? this.addingMusic(e) : this.removingMusic(e));
 
   render() {
     const { isLoading, musics, favorites, isLoadingFav, IDs } = this.state;
@@ -86,7 +95,7 @@ class Album extends React.Component {
                         musics={ musics }
                         favorites={ favorites }
                         isLoadingFav={ isLoadingFav }
-                        addingMusic={ this.addingMusic }
+                        handleChange={ this.handleChange }
                         IDs={ IDs }
                         music={ music }
                         check={ check }
