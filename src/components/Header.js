@@ -37,10 +37,9 @@ class Header extends React.Component {
     return (
       <header data-testid="header-component">
         <span data-testid="header-user-name">
-          Olá
-          {' '}
-          {response}
-          !
+          <p>
+            {response}
+          </p>
         </span>
         <nav>
           <Link to="/search" data-testid="link-to-search">Search</Link>

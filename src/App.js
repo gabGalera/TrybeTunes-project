@@ -22,9 +22,9 @@ class App extends React.Component {
     };
   }
 
-  getLogado = () => {
+  getLogado = (name) => {
     this.setState({ isLoading: true }, () => {
-      createUser({ name: 'Name' })
+      createUser({ name })
         .then(() => this.setState(
           { isLoading: false,
             logado: true,

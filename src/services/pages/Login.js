@@ -8,16 +8,14 @@ class Login extends React.Component {
     this.state = {
       length: 0,
       disabled: true,
+      name: '',
     };
-  }
-
-  componentDidUpdate() {
-
   }
 
   handleChange = (e) => {
     this.setState(() => ({
       length: e.target.value.length,
+      name: e.target.value,
     }), () => {
       const { length } = this.state;
       const minLength = 3;
@@ -30,7 +28,7 @@ class Login extends React.Component {
   };
 
   render() {
-    const { disabled } = this.state;
+    const { disabled, name } = this.state;
     const { getLogado } = this.props;
 
     return (
@@ -46,7 +44,7 @@ class Login extends React.Component {
           type="button"
           disabled={ disabled }
           onClick={ () => {
-            getLogado();
+            getLogado(name);
           } }
         >
           Entrar
