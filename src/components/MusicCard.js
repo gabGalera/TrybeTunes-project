@@ -28,7 +28,7 @@ class MusicCard extends React.Component {
             <input
               type="checkbox"
               data-testid={ `checkbox-music-${music.trackId}` }
-              value={ music.trackId }
+              id={ music.trackId }
               checked={ check }
               onChange={ (e) => handleChange(e) }
             />

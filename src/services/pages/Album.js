@@ -43,7 +43,7 @@ class Album extends React.Component {
       isLoadingFav: true,
     });
     const music = musics
-      .filter((entry) => entry.trackId === Number(e.target.value));
+      .filter((entry) => entry.trackId === Number(e.target.id));
     func(...music)
       .then(() => getFavoriteSongs()
         .then((songs) => {
