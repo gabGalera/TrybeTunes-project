@@ -24,7 +24,6 @@ class Profile extends React.Component {
 
   render() {
     const { info, isLoading } = this.state;
-    console.log(info);
 
     return (
       <div data-testid="page-profile">
