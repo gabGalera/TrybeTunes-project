@@ -1,18 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import Header from '../components/Header';
+import MusicCard from '../components/MusicCard';
+import { getFavoriteSongs, removeSong, addSong } from '../services/favoriteSongsAPI';
 import Carregando from './Carregando';
-import Header from '../../components/Header';
-import MusicCard from '../../components/MusicCard';
-import getMusics from '../musicsAPI';
-import { getFavoriteSongs, addSong, removeSong } from '../favoriteSongsAPI';
 
-class Album extends React.Component {
+class Favorites extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      musics: [],
-      isLoading: true,
       favorites: [],
       isLoadingFav: true,
       IDs: [],
@@ -20,12 +16,10 @@ class Album extends React.Component {
   }
 
   componentDidMount() {
-    const { id: { match: { params } } } = this.props;
-    getMusics(params.id)
-      .then((response) => this.setState({
-        musics: response,
-        isLoading: false,
-      }));
+    this.getFav();
+  }
+
+  getFav = () => {
     getFavoriteSongs()
       .then((response) => {
         const IDs = response.map((song) => song.trackId);
@@ -35,14 +29,14 @@ class Album extends React.Component {
           IDs,
         });
       });
-  }
+  };
 
   handleStorage = (func, e) => {
-    const { musics } = this.state;
+    const { favorites } = this.state;
     this.setState({
       isLoadingFav: true,
     });
-    const music = musics
+    const music = favorites
       .filter((entry) => entry.trackId === Number(e.target.id));
     func(...music)
       .then(() => getFavoriteSongs()
@@ -67,32 +61,24 @@ class Album extends React.Component {
   handleChange = (e) => (e.target.checked ? this.addingMusic(e) : this.removingMusic(e));
 
   render() {
-    const { isLoading, musics, favorites, isLoadingFav, IDs } = this.state;
+    const { isLoadingFav, favorites, IDs } = this.state;
 
+    console.log(isLoadingFav);
     return (
-      <div data-testid="page-album">
-        {isLoading ? (
-          <Carregando />
-        ) : (
-          <>
-            <Header />
-            <span data-testid="artist-name">
-              {`${musics[0].artistName}`}
-            </span>
-            <span data-testid="album-name">
-              {`${musics[0].collectionName}`}
-            </span>
-            { isLoadingFav
-              ? <Carregando />
-              : (
-                musics
+      <div data-testid="page-favorites">
+        <Header />
+        { isLoadingFav
+          ? <Carregando />
+          : (
+            <>
+              {
+                favorites
                   .filter((music) => typeof music.trackId !== 'undefined')
                   .map((music) => {
                     const check = IDs.includes(music.trackId);
                     return (
                       <MusicCard
                         key={ music.trackId }
-                        musics={ musics }
                         favorites={ favorites }
                         isLoadingFav={ isLoadingFav }
                         handleChange={ this.handleChange }
@@ -102,22 +88,12 @@ class Album extends React.Component {
                       />
                     );
                   })
-              )}
-          </>
-        )}
+              }
+            </>
+          )}
       </div>
     );
   }
 }
 
-Album.propTypes = {
-  id: PropTypes.shape({
-    match: PropTypes.shape({
-      params: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-      }),
-    }),
-  }).isRequired,
-};
-
-export default Album;
+export default Favorites;

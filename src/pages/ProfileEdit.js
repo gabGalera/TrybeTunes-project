@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../../components/Header';
+import Header from '../components/Header';
 
-import { getUser, updateUser } from '../userAPI';
+import { getUser, updateUser } from '../services/userAPI';
 import Carregando from './Carregando';
 
 class ProfileEdit extends React.Component {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../../components/Header';
-import { getUser } from '../userAPI';
+import Header from '../components/Header';
+import { getUser } from '../services/userAPI';
 import Carregando from './Carregando';
 
 class Profile extends React.Component {

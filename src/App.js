@@ -1,14 +1,14 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
-import Login from './services/pages/Login';
-import Search from './services/pages/Search';
-import Album from './services/pages/Album';
-import Favorites from './services/pages/Favorites';
-import Profile from './services/pages/Profile';
-import ProfileEdit from './services/pages/ProfileEdit';
-import NotFound from './services/pages/NotFound';
-import Carregando from './services/pages/Carregando';
+import Login from './pages/Login';
+import Search from './pages/Search';
+import Album from './pages/Album';
+import Favorites from './pages/Favorites';
+import Profile from './pages/Profile';
+import ProfileEdit from './pages/ProfileEdit';
+import NotFound from './pages/NotFound';
+import Carregando from './pages/Carregando';
 
 import { createUser } from './services/userAPI';
 
@@ -40,7 +40,7 @@ class App extends React.Component {
     if (isLoading === true) return <Carregando />;
     return (
       <>
-        <p>TrybeTunes</p>
+        {/* <p>TrybeTunes</p> */}
         <Switch>
           <Route path="/profile/edit" component={ ProfileEdit } />
           <Route path="/profile" component={ Profile } />
