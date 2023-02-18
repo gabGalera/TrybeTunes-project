@@ -124,6 +124,7 @@ li > a {
   height: 5vh;
   line-height: 150%;
   margin-top: 2vh;
+  text-decoration: none;
 }
 
 li > img {

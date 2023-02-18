@@ -15,19 +15,43 @@
 .nav {
   display: flex;
   flex-direction: column;
-  height: 25vh;
+  height: 20vh;
   justify-content: space-between;
+  margin-left: -3vw;
 }
 
-a {
+.nav > a, .name__span {
+  align-items: center;
   color: #444955;
+  display: flex;
   font-family: Epilogue , sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
+  justify-content: flex-start;
   letter-spacing: 0.03em;
   line-height: 16px;
   text-decoration: none;
   text-transform: capitalize;
+  width: 7vw;
 }
 
+.name__span > img {
+  filter: invert(88%) sepia(4%) saturate(319%)
+    hue-rotate(182deg) brightness(93%) contrast(82%);
+  height: 3vh;
+  margin-right: 2vw;
+  width: 1.5vw;
+}
+
+.nav > a > img {
+  filter: invert(88%) sepia(4%) saturate(319%)
+    hue-rotate(182deg) brightness(93%) contrast(82%);
+  height: 3vh;
+  margin-right: 2vw;
+  width: 1.5vw;
+}
+
+.name__span {
+  margin-left: -2vw;
+}
