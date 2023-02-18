@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './MusicCard.module.css';
 
 class MusicCard extends React.Component {
   render() {
@@ -9,7 +10,7 @@ class MusicCard extends React.Component {
       check } = this.props;
 
     return (
-      <div>
+      <div className={ styles.container }>
         <span key={ music.trackId }>
           <span>{ music.trackName }</span>
           <audio

@@ -25,34 +25,44 @@ class Profile extends React.Component {
   render() {
     const { info, isLoading } = this.state;
 
+    // if (isLoading) return <Carregando />;
     return (
-      <div data-testid="page-profile">
+      <div
+        data-testid="page-profile"
+      >
         <Header />
         {
           isLoading
             ? <Carregando />
             : (
-              <span>
-                <p>
-                  {info.name}
-                </p>
-                <p>
-                  {
-                    info.email
-                  }
-                </p>
-                <p>
-                  {
-                    info.description
-                  }
-                </p>
-                <img
-                  src={ info.image }
-                  alt="Imagem de perfil"
-                  data-testid="profile-image"
-                />
-                <Link to="/profile/edit">Editar perfil</Link>
-              </span>)
+              <div
+                style={ {
+                  marginLeft: '20vw',
+                } }
+              >
+                <span>
+                  <p>
+                    {info.name}
+                  </p>
+                  <p>
+                    {
+                      info.email
+                    }
+                  </p>
+                  <p>
+                    {
+                      info.description
+                    }
+                  </p>
+                  <img
+                    src={ info.image }
+                    alt="Imagem de perfil"
+                    data-testid="profile-image"
+                  />
+                  <Link to="/profile/edit">Editar perfil</Link>
+                </span>
+              </div>
+            )
         }
       </div>
     );

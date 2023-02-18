@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
 import { getFavoriteSongs, addSong, removeSong } from '../services/favoriteSongsAPI';
+import styles from './styles/Album.module.css';
 
 class Album extends React.Component {
   constructor() {
@@ -69,13 +70,15 @@ class Album extends React.Component {
   render() {
     const { isLoading, musics, favorites, isLoadingFav, IDs } = this.state;
 
+    if (isLoading) return <Carregando />;
+
     return (
-      <div data-testid="page-album">
-        {isLoading ? (
-          <Carregando />
-        ) : (
-          <>
-            <Header />
+      <>
+        <Header />
+        <div
+          data-testid="page-album"
+        >
+          <div className={ styles.container }>
             <span data-testid="artist-name">
               {`${musics[0].artistName}`}
             </span>
@@ -83,7 +86,26 @@ class Album extends React.Component {
               {`${musics[0].collectionName}`}
             </span>
             { isLoadingFav
-              ? <Carregando />
+              ? (
+                <div>
+                  <div className={ styles.text__div }>
+                    Carregando...
+                  </div>
+                  <div className={ styles['lds-spinner'] }>
+                    <div />
+                    <div />
+                    <div />
+                    <div />
+                    <div />
+                    <div />
+                    <div />
+                    <div />
+                    <div />
+                    <div />
+                    <div />
+                    <div />
+                  </div>
+                </div>)
               : (
                 musics
                   .filter((music) => typeof music.trackId !== 'undefined')
@@ -103,9 +125,9 @@ class Album extends React.Component {
                     );
                   })
               )}
-          </>
-        )}
-      </div>
+          </div>
+        </div>
+      </>
     );
   }
 }
