@@ -1,23 +1,27 @@
 .container {
+  align-items: center;
+  background-color: white;
   display: flex;
   flex-direction: column;
-  height: 15vh;
-  left: 46.5vw;
+  height: 100vh;
+  justify-content: center;
   position: absolute;
-  top: 43.5vh;
-  width: 7vw;
+  width: 100vw;
   z-index: 99;
 }
 
 .text__div {
-  height: 3vh;
-  margin-left: -0.5vw;
+  color: #003be5;
+  height: 30px;
+  width: 120px;
 }
 
 .lds-spinner {
   color: official;
   display: inline-block;
+  height: 110px;
   position: relative;
+  width: 100px;
   z-index: 99;
 }
 

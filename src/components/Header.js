@@ -13,7 +13,7 @@ class Header extends React.Component {
     super();
 
     this.state = {
-      logado: false,
+      isLogged: false,
       response: '',
     };
   }
@@ -23,21 +23,17 @@ class Header extends React.Component {
   }
 
   getRequisition = () => {
-    this.setState({
-      logado: true,
-    }, () => {
-      getUser()
-        .then((response) => this.setState({
-          response: response.name,
-          logado: false,
-        }));
-    });
+    getUser()
+      .then((response) => this.setState({
+        response: response.name,
+        isLogged: true,
+      }));
   };
 
   render() {
-    const { logado, response } = this.state;
+    const { isLogged, response } = this.state;
 
-    if (logado) return <Carregando />;
+    if (!isLogged) return <Carregando />;
 
     return (
       <header
