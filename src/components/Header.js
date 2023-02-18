@@ -34,7 +34,7 @@ class Header extends React.Component {
   render() {
     const { logado, response } = this.state;
 
-    if (logado === true) return <Carregando />;
+    if (logado) return <Carregando />;
 
     return (
       <header

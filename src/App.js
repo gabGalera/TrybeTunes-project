@@ -29,7 +29,9 @@ class App extends React.Component {
           { isLoading: false,
             logado: true,
           },
-          () => { (<Redirect to="/search" />); },
+          () => {
+            (<Redirect to="/search" />);
+          },
         ));
     });
   };
@@ -37,7 +39,7 @@ class App extends React.Component {
   render() {
     const { isLoading, logado } = this.state;
 
-    if (isLoading === true) return <Carregando />;
+    if (isLoading) return <Carregando />;
     return (
       <Switch>
         <Route path="/profile/edit" component={ ProfileEdit } />
