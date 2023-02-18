@@ -39,27 +39,24 @@ class App extends React.Component {
 
     if (isLoading === true) return <Carregando />;
     return (
-      <>
-        {/* <p>TrybeTunes</p> */}
-        <Switch>
-          <Route path="/profile/edit" component={ ProfileEdit } />
-          <Route path="/profile" component={ Profile } />
-          <Route path="/favorites" component={ Favorites } />
-          <Route path="/album/:id" render={ (id) => <Album id={ id } /> } />
-          <Route path="/search" component={ Search } />
-          <Route
-            exact
-            path="/"
-          >
-            {
-              logado === false
-                ? <Login isLoading={ isLoading } getLogado={ this.getLogado } />
-                : <Redirect to="/search" />
-            }
-          </Route>
-          <Route path="*" component={ NotFound } />
-        </Switch>
-      </>
+      <Switch>
+        <Route path="/profile/edit" component={ ProfileEdit } />
+        <Route path="/profile" component={ Profile } />
+        <Route path="/favorites" component={ Favorites } />
+        <Route path="/album/:id" render={ (id) => <Album id={ id } /> } />
+        <Route path="/search" component={ Search } />
+        <Route
+          exact
+          path="/"
+        >
+          {
+            logado === false
+              ? <Login isLoading={ isLoading } getLogado={ this.getLogado } />
+              : <Redirect to="/search" />
+          }
+        </Route>
+        <Route path="*" component={ NotFound } />
+      </Switch>
     );
   }
 }

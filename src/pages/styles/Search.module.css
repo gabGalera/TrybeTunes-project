@@ -1,0 +1,20 @@
+.container {
+  align-items: center;
+  background-image: url('../../images/back.png');
+  background-size: 90vw 75vh;
+  display: flex;
+  height: 30vh;
+  justify-content: center;
+  left: 10vw;
+  position: absolute;
+  width: 90vw;
+}
+
+.bg__container {
+  background: linear-gradient(123.66deg, #003be5 12.08%, #00d5e2 86.52%);
+  height: 30vh;
+  left: 10vw;
+  position: absolute;
+  width: 90vw;
+}
+

@@ -1,0 +1,15 @@
+.container {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 10vw;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+}
