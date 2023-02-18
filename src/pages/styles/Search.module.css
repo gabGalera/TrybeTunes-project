@@ -5,16 +5,142 @@
   display: flex;
   height: 30vh;
   justify-content: center;
-  left: 10vw;
+  left: 20vw;
   position: absolute;
-  width: 90vw;
+  width: 80vw;
 }
 
 .bg__container {
   background: linear-gradient(123.66deg, #003be5 12.08%, #00d5e2 86.52%);
   height: 30vh;
-  left: 10vw;
+  left: 20vw;
   position: absolute;
-  width: 90vw;
+  width: 80vw;
 }
 
+.container > input {
+  background: rgba(255, 255, 255, 0.5);
+  border: 0;
+  border-radius: 23px;
+  color: white;
+  font-family: Epilogue , sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  height: 20%;
+  letter-spacing: 0.03em;
+  line-height: 14px;
+  padding-left: 1vw;
+  width: 30%;
+}
+
+.container > span {
+  background-image: url('../../images/searchIcon.png');
+  background-size: cover;
+  height: 3vh;
+  margin-left: -3vw;
+  margin-right: 3.5vw;
+  width: 1.5vw;
+}
+
+.container > input::placeholder {
+  color: white;
+  font-family: Epilogue , sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 14px;
+  padding: 1vw;
+  text-transform: uppercase;
+}
+
+.container > button {
+  background: #00d5e2;
+  border: none;
+  border-radius: 23px;
+  color: white;
+  font-family: Epilogue , sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  height: 20%;
+  letter-spacing: 0.03em;
+  line-height: 14px;
+  margin-left: -1vw;
+  text-transform: uppercase;
+  width: 10%;
+}
+
+.container > button:disabled {
+  background-color: #80d5e2;
+  color: white;
+}
+
+.container > div {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 33vh;
+}
+
+.container > div > span {
+  color: #003be5;
+  font-family: Epilogue , sans-serif;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 20px;
+  text-align: center;
+}
+
+.container > div > ul {
+  display: flex;
+  height: 50vh;
+  list-style: none;
+  margin-top: 5vh;
+  overflow-x: scroll;
+  width: 70vw;
+}
+
+.container > div > ul > li {
+  color: #3d495c;
+  display: flex;
+  flex-direction: column;
+  font-family: Epilogue , sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  padding-right: 1vw;
+}
+
+li > a {
+  color: #3d495c;
+  font-family: Epilogue , sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  height: 5vh;
+  line-height: 150%;
+  margin-top: 2vh;
+}
+
+li > img {
+  width: 15vw;
+}
+
+ul::-webkit-scrollbar {
+  width: 1em;
+}
+
+ul::-webkit-scrollbar-track {
+  border-radius: 50px;
+  box-shadow: inset 0 0 30px #00d5e2;
+}
+
+ul::-webkit-scrollbar-thumb {
+  background-color: #003be5;
+  border-radius: 50px;
+
+}

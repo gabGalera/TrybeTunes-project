@@ -63,7 +63,6 @@ class Favorites extends React.Component {
   render() {
     const { isLoadingFav, favorites, IDs } = this.state;
 
-    console.log(isLoadingFav);
     return (
       <div data-testid="page-favorites">
         <Header />

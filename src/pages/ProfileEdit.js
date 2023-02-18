@@ -84,8 +84,6 @@ class ProfileEdit extends React.Component {
       disabled,
     } = this.state;
 
-    console.log('Estou aqui');
-
     return (
       <div data-testid="page-profile-edit">
         <Header />

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Carregando from '../pages/Carregando';
 import { getUser } from '../services/userAPI';
 import styles from './Header.module.css';
+import logo from '../images/logo.png';
 
 class Header extends React.Component {
   constructor() {
@@ -40,6 +41,7 @@ class Header extends React.Component {
         className={ styles.container }
         data-testid="header-component"
       >
+        <img src={ logo } alt="logo" />
         <nav className={ styles.nav }>
           <Link to="/search" data-testid="link-to-search">Search</Link>
           <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>

@@ -40,6 +40,7 @@ class Search extends React.Component {
     const { artist } = this.state;
     searchAlbumsAPI(artist)
       .then((response) => {
+        console.log(response);
         this.setState({
           response: response.filter((entry) => entry.artistName.includes(artist)),
           requestCompleted: true,
@@ -65,9 +66,11 @@ class Search extends React.Component {
           <input
             type="text"
             data-testid="search-artist-input"
+            placeholder="Type here to search"
             value={ inputValue }
             onChange={ (e) => this.handleChange(e) }
           />
+          <span />
           <button
             type="button"
             data-testid="search-artist-button"
@@ -77,7 +80,6 @@ class Search extends React.Component {
             } }
           >
             Pesquisar
-
           </button>
           {
             requestCompleted && (
@@ -88,12 +90,13 @@ class Search extends React.Component {
                   {' '}
                   {artist}
                 </span>
-                <ul>
-                  {(response.length === 0) ? (
-                    <span>Nenhum álbum foi encontrado</span>
-                  ) : (
-                    response.map((entry) => (
+                {(response.length === 0) ? (
+                  <span>Nenhum álbum foi encontrado</span>
+                ) : (
+                  <ul>
+                    {response.map((entry) => (
                       <li key={ entry.collectionName }>
+                        <img src={ entry.artworkUrl100 } alt="" />
                         <Link
                           to={ `/album/${entry.collectionId}` }
                           data-testid={ `link-to-album-${entry.collectionId}` }
@@ -101,11 +104,11 @@ class Search extends React.Component {
                         >
                           {entry.collectionName}
                         </Link>
+                        <span>{entry.artistName}</span>
                       </li>
-                    ))
-                  )}
-
-                </ul>
+                    ))}
+                  </ul>
+                )}
               </div>
             )
           }
