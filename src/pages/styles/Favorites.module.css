@@ -2,7 +2,7 @@
   align-items: center;
   background-image: url('../../images/back.png');
   background-size: 90vw 75vh;
-  color: #fff;
+  color: white;
   display: flex;
   font-family: Epilogue , sans-serif;
   font-size: 20px;
@@ -16,6 +16,7 @@
   text-align: center;
   top: 0;
   width: 80vw;
+  z-index: -1;
 }
 
 .bg__container {
@@ -25,6 +26,7 @@
   position: absolute;
   top: 0;
   width: 80vw;
+  z-index: -1;
 }
 
 .container {
@@ -41,6 +43,15 @@
   margin-left: 20vw;
   overflow-y: scroll;
   width: 50vw;
+}
+
+.loading__div {
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  z-index: -1;
 }
 
 .musics__container::-webkit-scrollbar {

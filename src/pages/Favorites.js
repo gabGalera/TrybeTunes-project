@@ -75,7 +75,11 @@ class Favorites extends React.Component {
           Músicas favoritas
         </div>
         { isLoadingFav
-          ? <Carregando />
+          ? (
+            <div className={ styles.loading__div }>
+              <Carregando />
+            </div>
+          )
           : (
             <div className={ styles.musics__container }>
               {
