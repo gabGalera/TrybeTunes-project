@@ -14,7 +14,11 @@ class MusicCard extends React.Component {
         className={ styles.container }
         key={ music.trackId }
       >
-        <span>{ music.trackName }</span>
+        <span
+          className={ styles.track__name }
+        >
+          { music.trackName }
+        </span>
         <audio
           data-testid="audio-component"
           src={ music.previewUrl }
@@ -26,7 +30,10 @@ class MusicCard extends React.Component {
           {' '}
           <code>audio</code>
         </audio>
-        <label htmlFor={ music.trackId }>
+        <label
+          className={ styles.fav__input }
+          htmlFor={ music.trackId }
+        >
           Favorita
           <input
             type="checkbox"

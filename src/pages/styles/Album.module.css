@@ -39,6 +39,19 @@
   width: 55.5vw;
 }
 
+.music__div::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+.music__div::-webkit-scrollbar-track {
+  border-radius: 50px;
+}
+
+.music__div::-webkit-scrollbar-thumb {
+  background-color: #003be5;
+  border-radius: 50px;
+}
+
 .album__div {
   display: flex;
   left: 25vw;
