@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import MusicCard from '../components/MusicCard';
 import { getFavoriteSongs, removeSong, addSong } from '../services/favoriteSongsAPI';
 import Carregando from './Carregando';
+import styles from './styles/Favorites.module.css';
 
 class Favorites extends React.Component {
   constructor() {
@@ -64,12 +65,19 @@ class Favorites extends React.Component {
     const { isLoadingFav, favorites, IDs } = this.state;
 
     return (
-      <div data-testid="page-favorites">
+      <div
+        className={ styles.container }
+        data-testid="page-favorites"
+      >
         <Header />
+        <div className={ styles.bg__container } />
+        <div className={ styles.bg__img }>
+          Músicas favoritas
+        </div>
         { isLoadingFav
           ? <Carregando />
           : (
-            <>
+            <div className={ styles.musics__container }>
               {
                 favorites
                   .filter((music) => typeof music.trackId !== 'undefined')
@@ -85,7 +93,7 @@ class Favorites extends React.Component {
                     );
                   })
               }
-            </>
+            </div>
           )}
       </div>
     );
