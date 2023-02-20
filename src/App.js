@@ -23,8 +23,15 @@ class App extends React.Component {
   }
 
   getLogado = (name) => {
+    const description = `
+    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Magnam, non optio quaerat nobis aut itaque doloribus 
+    illum aliquid saepe perspiciatis. 
+    Officia consectetur placeat aut aspernatur quis deserunt, totam nemo vitae.`;
+    const email = 'example@hotmail.com';
+    const image = 'examplePhoto.jpeg';
     this.setState({ isLoading: true }, () => {
-      createUser({ name })
+      createUser({ name, email, image, description })
         .then(() => this.setState(
           { isLoading: false,
             logado: true,

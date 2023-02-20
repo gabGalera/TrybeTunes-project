@@ -45,6 +45,7 @@
 
 .music__div::-webkit-scrollbar-track {
   border-radius: 50px;
+  box-shadow: inset 0 0 5px gray;
 }
 
 .music__div::-webkit-scrollbar-thumb {
