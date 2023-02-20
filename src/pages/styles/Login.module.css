@@ -74,6 +74,15 @@
   width: 60%;
 }
 
+.login__button:hover {
+  cursor: pointer;
+}
+
+.login__button:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
 input::placeholder {
   color: #003be5;
   font-family: Epilogue , sans-serif;
