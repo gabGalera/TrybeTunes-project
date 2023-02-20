@@ -1,3 +1,4 @@
+/* eslint-disable import/no-dynamic-require */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
@@ -140,8 +141,8 @@ class ProfileEdit extends React.Component {
                 <img
                   className={ styles.img }
                   id="image"
-                  src={ image }
-                  // src={ require(`../images/${image}`) }
+                  // src={ image }
+                  src={ require(`../images/${image}`) }
                   alt="Imagem de perfil"
                   data-testid="profile-image"
                 />

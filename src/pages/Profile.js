@@ -47,8 +47,8 @@ class Profile extends React.Component {
                 <img
                   className={ styles.img }
                   id="image"
-                  src={ info.image }
-                  // src={ require(`../images/${info.image}`) }
+                  // src={ info.image }
+                  src={ require(`../images/${info.image}`) }
                   alt="Imagem de perfil"
                   data-testid="profile-image"
                 />
