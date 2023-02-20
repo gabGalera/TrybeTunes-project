@@ -60,7 +60,7 @@ class App extends React.Component {
         >
           {
             logado === false
-              ? <Login isLoading={ isLoading } getLogado={ this.getLogado } />
+              ? <Login getLogado={ this.getLogado } />
               : <Redirect to="/search" />
           }
         </Route>

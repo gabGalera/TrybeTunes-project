@@ -25,6 +25,7 @@ class Profile extends React.Component {
 
   render() {
     const { info, isLoading } = this.state;
+
     return (
       <div
         className={ styles.container }

@@ -4,6 +4,7 @@ import Header from '../components/Header';
 
 import { getUser, updateUser } from '../services/userAPI';
 import Carregando from './Carregando';
+import styles from './styles/ProfileEdit.module.css';
 
 class ProfileEdit extends React.Component {
   constructor() {
@@ -87,14 +88,20 @@ class ProfileEdit extends React.Component {
     return (
       <div data-testid="page-profile-edit">
         <Header />
+        <div className={ styles.bg__container } />
+        <div className={ styles.bg__img } />
         {
           isLoading
             ? <Carregando />
             : (
-              <form>
-                <label htmlFor="name">
+              <form className={ styles.forms }>
+                <label
+                  className={ styles.labels }
+                  htmlFor="name"
+                >
                   Nome:
                   <input
+                    className={ styles.name__input }
                     type="text"
                     data-testid="edit-input-name"
                     id="name"
@@ -102,9 +109,13 @@ class ProfileEdit extends React.Component {
                     value={ name }
                   />
                 </label>
-                <label htmlFor="email">
+                <label
+                  className={ styles.labels }
+                  htmlFor="email"
+                >
                   E-mail:
                   <input
+                    className={ styles.email__input }
                     type="text"
                     data-testid="edit-input-email"
                     id="email"
@@ -112,19 +123,34 @@ class ProfileEdit extends React.Component {
                     value={ email }
                   />
                 </label>
-                <label htmlFor="description">
+                <label
+                  className={ styles.labels }
+                  htmlFor="description"
+                >
                   Description:
-                  <input
-                    type="text"
+                  <textarea
+                    className={ styles.desc_input }
+                    type="text-area"
                     data-testid="edit-input-description"
                     id="description"
                     onChange={ (e) => this.handleChange(e) }
                     value={ description }
                   />
                 </label>
-                <label htmlFor="image">
-                  Image:
+                <img
+                  className={ styles.img }
+                  id="image"
+                  src={ image }
+                  // src={ require(`../images/${image}`) }
+                  alt="Imagem de perfil"
+                  data-testid="profile-image"
+                />
+                <label
+                  className={ styles.labels }
+                  htmlFor="image"
+                >
                   <input
+                    className={ styles.image__input }
                     type="text"
                     data-testid="edit-input-image"
                     id="image"
@@ -134,6 +160,7 @@ class ProfileEdit extends React.Component {
                 </label>
                 <Link to="/profile">
                   <button
+                    className={ styles.btn }
                     type="button"
                     data-testid="edit-button-save"
                     disabled={ disabled }
