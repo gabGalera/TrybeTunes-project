@@ -25,7 +25,6 @@ class Profile extends React.Component {
   render() {
     const { info, isLoading } = this.state;
 
-    // if (isLoading) return <Carregando />;
     return (
       <div
         data-testid="page-profile"

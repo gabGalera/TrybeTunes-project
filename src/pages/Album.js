@@ -14,7 +14,6 @@ class Album extends React.Component {
     this.state = {
       musics: [],
       isLoading: true,
-      favorites: [],
       isLoadingFav: true,
       IDs: [],
     };
@@ -31,7 +30,7 @@ class Album extends React.Component {
       .then((response) => {
         const IDs = response.map((song) => song.trackId);
         this.setState({
-          favorites: response,
+
           isLoadingFav: false,
           IDs,
         });
@@ -50,7 +49,6 @@ class Album extends React.Component {
         .then((songs) => {
           const IDs = songs.map((song) => song.trackId);
           this.setState({
-            favorites: songs,
             isLoadingFav: false,
             IDs,
           });
@@ -68,7 +66,7 @@ class Album extends React.Component {
   handleChange = (e) => (e.target.checked ? this.addingMusic(e) : this.removingMusic(e));
 
   render() {
-    const { isLoading, musics, favorites, isLoadingFav, IDs } = this.state;
+    const { isLoading, musics, isLoadingFav, IDs } = this.state;
 
     if (isLoading) return <Carregando />;
 
@@ -87,7 +85,7 @@ class Album extends React.Component {
             </span>
             { isLoadingFav
               ? (
-                <div>
+                <div className={ styles.loading__div }>
                   <div className={ styles.text__div }>
                     Carregando...
                   </div>
@@ -105,7 +103,8 @@ class Album extends React.Component {
                     <div />
                     <div />
                   </div>
-                </div>)
+                </div>
+              )
               : (
                 musics
                   .filter((music) => typeof music.trackId !== 'undefined')
@@ -115,10 +114,7 @@ class Album extends React.Component {
                       <MusicCard
                         key={ music.trackId }
                         musics={ musics }
-                        favorites={ favorites }
-                        isLoadingFav={ isLoadingFav }
                         handleChange={ this.handleChange }
-                        IDs={ IDs }
                         music={ music }
                         check={ check }
                       />

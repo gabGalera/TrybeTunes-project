@@ -78,10 +78,7 @@ class Favorites extends React.Component {
                     return (
                       <MusicCard
                         key={ music.trackId }
-                        favorites={ favorites }
-                        isLoadingFav={ isLoadingFav }
                         handleChange={ this.handleChange }
-                        IDs={ IDs }
                         music={ music }
                         check={ check }
                       />

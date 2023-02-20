@@ -1,6 +1,23 @@
 .container {
+  box-sizing: border-box;
+  height: 100vh;
   left: 20vw;
   position: absolute;
+  top: 0;
+  width: 80vw;
+}
+
+.loading__div {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: -20vw;
+  position: absolute;
+  top: 0;
+  width: 100vw;
 }
 
 .text__div {
