@@ -1,6 +1,5 @@
 .container {
-
-  /* height: 100vh;
-  left: 20vw;
-  position: absolute; */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }

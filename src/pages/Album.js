@@ -73,16 +73,29 @@ class Album extends React.Component {
     return (
       <>
         <Header />
+        <div className={ styles.bg__container } />
+        <div className={ styles.bg__img } />
         <div
           data-testid="page-album"
         >
+          <div className={ styles.album__div }>
+            <img src={ musics[0].artworkUrl100 } alt="" />
+            <div>
+              <span
+                className={ styles.album__name }
+                data-testid="album-name"
+              >
+                {`${musics[0].collectionName}`}
+              </span>
+              <span
+                className={ styles.artist__name }
+                data-testid="artist-name"
+              >
+                {`${musics[0].artistName}`}
+              </span>
+            </div>
+          </div>
           <div className={ styles.container }>
-            <span data-testid="artist-name">
-              {`${musics[0].artistName}`}
-            </span>
-            <span data-testid="album-name">
-              {`${musics[0].collectionName}`}
-            </span>
             { isLoadingFav
               ? (
                 <div className={ styles.loading__div }>
@@ -106,20 +119,24 @@ class Album extends React.Component {
                 </div>
               )
               : (
-                musics
-                  .filter((music) => typeof music.trackId !== 'undefined')
-                  .map((music) => {
-                    const check = IDs.includes(music.trackId);
-                    return (
-                      <MusicCard
-                        key={ music.trackId }
-                        musics={ musics }
-                        handleChange={ this.handleChange }
-                        music={ music }
-                        check={ check }
-                      />
-                    );
-                  })
+                <div className={ styles.music__div }>
+                  {
+                    musics
+                      .filter((music) => typeof music.trackId !== 'undefined')
+                      .map((music) => {
+                        const check = IDs.includes(music.trackId);
+                        return (
+                          <MusicCard
+                            key={ music.trackId }
+                            musics={ musics }
+                            handleChange={ this.handleChange }
+                            music={ music }
+                            check={ check }
+                          />
+                        );
+                      })
+                  }
+                </div>
               )}
           </div>
         </div>
