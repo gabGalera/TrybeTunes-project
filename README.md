@@ -1,4 +1,4 @@
-# Trybe Wallet
+# Trybe Tunes
 
 Esse projeto foi elaborado como parte do módulo de front-end da Trybe. Nele foi desenvolvida um aplicativo que músicas com uma API do itunes. 
 
